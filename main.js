@@ -1,69 +1,89 @@
+window.addEventListener('onload',function(){
+    
+    
+
+})
 window.addEventListener('load',function(){
-    x=0;
-    y=0;
-    custom=screen2d.drawImage(playerr,player.x,player.y);
-    screen2d.drawImage(groundd,ground.x,ground.y);';
-function custom(){
-    psychic();
     
-}
-    screenH = window.innerHeight;
-    screen = document.getElementById('screen');
-    screen2d = screen.getContext('2d');
+   
     
-    
+   
+    class Screen{
+        constructor(id,context){
+            this.element=id;
+            this.width=Math.round(id.width);
+            this.height=Math.round(id.height);
+            this.context=id.getContext(context);
+            class Update{
+                constructor(){
+                    function update() {
+                    
+                            frame.after();
+                            screen2d.clearRect(0,0,1366,720);
+                            screen2d.beginPath();
+                            frame.over();
+                            screen2d.closePath();
+                            frame.before();
+                    }
+                    setTimeout(update,900);
+                    
+                    this.before=function (){
+                        console.log('a')
+                    }
+                    this.over=function(){
+                        console.log('a')
+                    }
+                    this.after=function(){
+                        console.log('a')
+                    }
+                    class MasterScene{
+                        constructor(){
+                            
+                            class Scene{
 
 
-    window.addEventListener('keydown',function(event){
-        
-        
-        switch(event.key){
-            
-            case 'ArrowUp':
-                
-                key = 'up';
-                
-                
-                
 
-                player.y-=1;
-                
-                
-                break;
-            case 'ArrowDown':
-                key = 'down';
-                
-                
-                
-                player.y+=1;
-        
-                break;
-            case 'ArrowLeft':
-                key = 'left';
-                
-                
-                
-                player.x-=1;
-                break;
-            case 'ArrowRight':
-                key = 'right';
-                
-                
-                
-                player.x+=1;
-                break;
-                        
+
+
+
+
+
+
+                                
+                                constructor(){
+                                    this.width=width;
+                                    this.height=height;
+                                        class Viewport{
+                                                constructor(width,height,position){
+                                                    this.position;
+                                                    this.width=width;
+                                                    this.height=height;
+                                                }
+                                            }
+                                }
+
+
+
+
+
+
+
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+
         }
-        console.log(keysPressed)
-})
-window.addEventListener('keyup',function(event){
-        
-        keysPressed=[];
-        
-        
-        
-        
-})
-setInterval(frame,10);
+    }
+    
+    
+    screen = new Screen(document.getElementById('screen','2d'));
+    screen.
+    
+    })
 
-})
+    
