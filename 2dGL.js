@@ -1,37 +1,61 @@
 window.onload=function(){
    
-
+   load=document.createElement('div');
+   document.body.appendChild(load);
+   load.setAttribute('id','load');
+   load.innerText="Esta pagina está carregandp";
+  
+   load.style.width=parseInt(window.innerWidth)+'px';
+   load.style.height=parseInt(window.innerHeight)+'px';
+   
+   
+  
 }
 window.addEventListener('load',()=>{
+    class Scene{
+        constructor(){
+
+        }
+        load(){
+            
+        }
+    }
   class Position{
-      constructor(type,t,b,l,r){
-        this.position=this.id.style.position = 'absolute';
+      constructor(object,type,t,b,l,r){
+        if(type==0){
+             this.position=object.style.position = 'absolute';
+        }else{
+            this.position=object.style.position = 'relative';
+        }
+       //if(tb,l,r)
         this.id.style.left=l;
         this.id.style.top=t;
-        this.id.style.left=b;
+        this.id.style.left=l;
         this.id.style.right=r;
-        
-    
+        this.id.style.bottom=b;
       }
-
   }
     class Screen{
         constructor(id,position,resolution,context){
-            this.id=id;
-                  this.id.style.left=0;
-                  this.id.style.top=0;
-                  this.id.style.left=0;
-              this.position=this.id.style.position = 'absolute';
-              
-             this.context=this.id.getContext('2d');
-             this.resolution=resolution; 
+            if(position&&resolution&&context!==undefined){
+                this.id=id;
+                this.position=new Position(this);
+                this.context=this.id.getContext(context);
+                this.resolution=resolution; 
+            }else{
+                if(context==undefined){
+                    
+                }
+            }
+            
+            
         }}
     
-    screen=new Screen(document.getElementsByTagName('canvas')[0],0,100);
+    MainScreen=new Screen(document.getElementsByTagName('canvas')[0],0,100);
+    
+    
     console.dir(screen);
-    console.dir(document.getElementsByTagName('canvas')[0].position);
-    position={
-        a:x
-    };
+    
+    
 });
 
