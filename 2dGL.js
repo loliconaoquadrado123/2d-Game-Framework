@@ -43,32 +43,35 @@ window.addEventListener('load',()=>{
     }
     
     class Screen{
-        constructor(id,position,resolution,context){
+        constructor(id,context){
             //escorpo do codigo screen 
             
                 this.id=id==undefined?document.getElementsByTagName('canvas')[0]:id;
                 this.context=this.id.getContext(context);
-                this.resolution=resolution;
+                this.resolution=[id.width,id.height];
                 //frame 
+                
                 
         }
     }           
-    function update(ListOfScreens){
-        Lenght=ListOfScreens.length;
-        alert(Lenght)
-        //Screen ONE
-        //layer one
-        //Layer Two
+    function update(ScreensToRender){
+        console.log(ScreensToRender.length)
+        for(i=0;i==ScreensToRender.length;i++){
+            console.log('ola')
 
-        //Screen 2
+        }
+       
+        
     }
-    count=0;
-    MasterScene=new MasterScene;
-    ListOfScreensToUpdate=[];
-    MainScreen=new Screen(document.getElementsByTagName('canvas')[0],0,100,'2d');
 
-    Scene=new Scene();
-    setInterval(update,1000,ListOfScreensToUpdate)
+
+    MasterScene=new MasterScene;
+    ScreensToRender=[MainScreen=new Screen(document.getElementsByTagName('canvas')[0],'2d')];
+
+   
+    console.log(ScreensToRender)
+    setTimeout(update,1,ScreensToRender)
+
   
 })
 
