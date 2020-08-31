@@ -13,32 +13,21 @@ window.onload=function(){
 }
 window.addEventListener('load',()=>{
    
-    class Position{
-        constructor(id,type,top,bottom,left,right){
+    // class Position{
+    //     constructor(id,type,top,bottom,left,right){
             
-            this.type=id.style.position=type == 0 ? "absolute" : "relative";
-            this.top=id.style.top=top;
-            console.log(this.bottom=id.style.bottom=bottom)
-            this.bottom=id.style.bottom=bottom;
-            this.left=id.style.left=left;
-            this.right=id.style.right=right;
+    //         this.type=id.style.position=type == 0 ? "absolute" : "relative";
+    //         this.top=id.style.top=top;
+    //         console.log(this.bottom=id.style.bottom=bottom)
+    //         this.bottom=id.style.bottom=bottom;
+    //         this.left=id.style.left=left;
+    //         this.right=id.style.right=right;
             
            
             
-        }
-    }
-    class Frame{
-        constructor(){
-            this.update=function (){
-                //layer one
-                
-
-                //Layer Two
-                console.log('ola')
-                //debug
-            }
-        }
-    }
+    //     }
+    // }
+    
     class Viewport{
 
     }
@@ -61,15 +50,26 @@ window.addEventListener('load',()=>{
                 this.context=this.id.getContext(context);
                 this.resolution=resolution;
                 //frame 
-                this.update=new Frame();
+                
         }
     }           
-        
-    MainScreen=new Screen(document.getElementsByTagName('canvas')[0],0,100,'2d');
+    function update(ListOfScreens){
+        Lenght=ListOfScreens.length;
+        alert(Lenght)
+        //Screen ONE
+        //layer one
+        //Layer Two
+
+        //Screen 2
+    }
+    count=0;
     MasterScene=new MasterScene;
+    ListOfScreensToUpdate=[];
+    MainScreen=new Screen(document.getElementsByTagName('canvas')[0],0,100,'2d');
+
     Scene=new Scene();
-    setTimout(MainScreen.update,1000)
-    console.log(MainScreen.position)
+    setInterval(update,1000,ListOfScreensToUpdate)
+  
 })
 
 
