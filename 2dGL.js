@@ -66,7 +66,7 @@ window.addEventListener('load',()=>{
 
 
     MasterScene=new MasterScene;
-    ScreensToRender=[MainScreen=new Screen(document.getElementsByTagName('canvas')[0],'2d')];
+    ScreensToRender=[new Screen(document.getElementsByTagName('canvas')[0],'2d')];
 
    
     console.log(ScreensToRender)
