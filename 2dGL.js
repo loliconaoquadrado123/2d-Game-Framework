@@ -1,61 +1,75 @@
 window.onload=function(){
    
-   load=document.createElement('div');
-   document.body.appendChild(load);
-   load.setAttribute('id','load');
-   load.innerText="Esta pagina está carregandp";
+//    load=document.createElement('div');
+//    document.body.appendChild(load);
+//    load.setAttribute('id','load');
+//    load.innerText="THIS PAGE IS LOADING";
   
-   load.style.width=parseInt(window.innerWidth)+'px';
-   load.style.height=parseInt(window.innerHeight)+'px';
+//    load.style.width=parseInt(window.innerWidth)+'px';
+//    load.style.height=parseInt(window.innerHeight)+'px';
    
    
   
 }
 window.addEventListener('load',()=>{
-    class Scene{
-        constructor(){
-
-        }
-        load(){
+   
+    class Position{
+        constructor(id,type,top,bottom,left,right){
+            
+            this.type=id.style.position=type == 0 ? "absolute" : "relative";
+            this.top=id.style.top=top;
+            console.log(this.bottom=id.style.bottom=bottom)
+            this.bottom=id.style.bottom=bottom;
+            this.left=id.style.left=left;
+            this.right=id.style.right=right;
+            
+           
             
         }
     }
-  class Position{
-      constructor(object,type,t,b,l,r){
-        if(type==0){
-             this.position=object.style.position = 'absolute';
-        }else{
-            this.position=object.style.position = 'relative';
+    class Frame{
+        constructor(){
+            this.update=function (){
+                //layer one
+                
+
+                //Layer Two
+                console.log('ola')
+                //debug
+            }
         }
-       //if(tb,l,r)
-        this.id.style.left=l;
-        this.id.style.top=t;
-        this.id.style.left=l;
-        this.id.style.right=r;
-        this.id.style.bottom=b;
-      }
-  }
+    }
+    class Viewport{
+
+    }
+    class Scene{
+        constructor(master){
+            
+        }
+    }
+    class MasterScene{
+        constructor(){
+            this.scenes=[]
+        }
+    }
+    
     class Screen{
         constructor(id,position,resolution,context){
-            if(position&&resolution&&context!==undefined){
-                this.id=id;
-                this.position=new Position(this);
+            //escorpo do codigo screen 
+            
+                this.id=id==undefined?document.getElementsByTagName('canvas')[0]:id;
                 this.context=this.id.getContext(context);
-                this.resolution=resolution; 
-            }else{
-                if(context==undefined){
-                    
-                }
-            }
-            
-            
-        }}
-    
-    MainScreen=new Screen(document.getElementsByTagName('canvas')[0],0,100);
-    
-    
-    console.dir(screen);
-    
-    
-});
+                this.resolution=resolution;
+                //frame 
+                this.update=new Frame();
+        }
+    }           
+        
+    MainScreen=new Screen(document.getElementsByTagName('canvas')[0],0,100,'2d');
+    MasterScene=new MasterScene;
+    Scene=new Scene();
+    setTimout(MainScreen.update,1000)
+    console.log(MainScreen.position)
+})
+
 
