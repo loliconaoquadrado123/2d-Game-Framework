@@ -32,13 +32,13 @@ window.addEventListener('load',()=>{
 
     }
     class Scene{
-        constructor(master){
+        constructor(){
             
         }
     }
-    class MasterScene{
+    class LoadScene{
         constructor(){
-            this.scenes=[]
+            
         }
     }
     
@@ -49,30 +49,44 @@ window.addEventListener('load',()=>{
                 this.id=id==undefined?document.getElementsByTagName('canvas')[0]:id;
                 this.context=this.id.getContext(context);
                 this.resolution=[id.width,id.height];
+                this.scenes=[];
+                this.ToRender;
                 //frame 
+                this.update=function(id){
+                    this.scenes
+                }
                 
                 
         }
     }           
-    function update(ScreensToRender){
-        console.log(ScreensToRender.length)
-        for(i=0;i==ScreensToRender.length;i++){
-            console.log('ola')
-
+    function update(){
+        console.log(Screens.length)
+        for(i=0;i==Screens.length;i++){
+            Screens[i].update(Screens[i]);
         }
-       
-        
     }
+    // class Update{
+    //     constructor(){
+    //         this.restartFrame=function(id,time){
+    //                 clearTimeout(id);
+    //                 newId=0;
+    //                 setTimeout(() => {
+    //                     newId=setTimeout(update(),time);
+    //                 },time);
+    //                 return newId;
+    //         }
+    //         this.update=function()
 
+    //         }
+    //     }
+    // }
+    
 
-    MasterScene=new MasterScene;
-    ScreensToRender=[new Screen(document.getElementsByTagName('canvas')[0],'2d')];
-
-   
-    console.log(ScreensToRender)
-    setTimeout(update,1,ScreensToRender)
-
-  
+    
+    Screens=[new Screen(document.getElementsByTagName('canvas')[0],'2d')];
+    id=setTimeout(update,1);
+    
+    
 })
 
 
