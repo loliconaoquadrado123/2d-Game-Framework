@@ -29,11 +29,29 @@ window.addEventListener('load',()=>{
     // }
     
     class Viewport{
-
+        constructor(position,width,height){
+            this.position=position;
+            this.width=width;
+            this.height=height;
+        }
+        
+    }
+    class SceneObjects{
+        constructor(type,width,height,layer){
+            this.width=width==undefined?0:width;
+            this.height=height==undefined?0:height;
+            this.type=type==undefined?0:type;
+            this.layer=layer;
+            
+        }
+        
     }
     class Scene{
-        constructor(){
-            
+        constructor(width,height,){
+            this.width=width;
+            this.height=height;
+            this.viewport;
+            this.objects=[];
         }
     }
     class LoadScene{
@@ -48,13 +66,13 @@ window.addEventListener('load',()=>{
             
                 this.id=id==undefined?document.getElementsByTagName('canvas')[0]:id;
                 this.context=this.id.getContext(context);
-                this.resolution=[id.width,id.height];
+                this.width=id.width;
+                this.height=id.height;
                 this.scenes=[];
-                this.ToRender;
+                this.viewport=new Viewport();
+                this.ToRender=0;
                 //frame 
-                this.update=function(id){
-                    this.scenes
-                }
+                
                 
                 
         }
@@ -62,7 +80,9 @@ window.addEventListener('load',()=>{
     function update(){
         console.log(Screens.length)
         for(i=0;i==Screens.length;i++){
-            Screens[i].update(Screens[i]);
+            Screens[i].scenes[Screens[i].ToRender];
+            
+            //fim da tela
         }
     }
     // class Update{
@@ -81,11 +101,20 @@ window.addEventListener('load',()=>{
     //     }
     // }
     
-
-    
+    MainScreen=0;
+    MainScene=0;
     Screens=[new Screen(document.getElementsByTagName('canvas')[0],'2d')];
-    id=setTimeout(update,1);
+    Screens[MainScreen].scenes=new Scene();
+    Screens[MainScreen].ToRender=0;
+    //Scene Config
+    Screens[MainScreen].scenes[MainScene].width=Screens[MainScreen].width;
+    Screens[MainScreen].scenes[MainScene].height=Screens[MainScreen].height;
+    //Viewport
     
+
+    Frame=setTimeout(update,1);
+    
+
     
 })
 
