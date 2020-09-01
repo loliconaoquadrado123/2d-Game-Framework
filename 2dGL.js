@@ -80,7 +80,13 @@ window.addEventListener('load',()=>{
     function update(){
         console.log(Screens.length)
         for(i=0;i==Screens.length;i++){
-            Screens[i].scenes[Screens[i].ToRender];
+            //Rederizar
+            Screen=Screens[i];
+            Scene=Screen.scenes[Screen.ToRender];
+            
+            for(i=0;i==Screen.viewport.objects.lenght;i++){
+                alert('ola');
+            }
             
             //fim da tela
         }
@@ -109,9 +115,9 @@ window.addEventListener('load',()=>{
     //Scene Config
     Screens[MainScreen].scenes[MainScene].width=Screens[MainScreen].width;
     Screens[MainScreen].scenes[MainScene].height=Screens[MainScreen].height;
+    Screens[MainScreen].scenes[MainScene].viewport.width=Screens[MainScreen].width;
+    Screens[MainScreen].scenes[MainScene].viewport.height=Screens[MainScreen].height;
     //Viewport
-    
-
     Frame=setTimeout(update,1);
     
 
